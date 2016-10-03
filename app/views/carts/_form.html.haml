@@ -1,0 +1,9 @@
+= simple_form_for(@cart) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :shipping_name, label: '配送先名'
+    = f.input :shipping_postal_code, label: '配送先郵便番号'
+    = f.input :shipping_address, label: '配送先住所'
+    = f.input :shipping_email, label: '配送先メールアドレス'
+  .form-actions
+    = f.button :submit

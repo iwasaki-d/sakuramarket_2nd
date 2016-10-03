@@ -1,0 +1,49 @@
+%h1 購入確認画面
+%table.table.table-striped
+  %thead
+    %tr
+      %th 商品名称
+      %th 価格
+      %th 購入数
+      %th 金額
+  %tbody
+    - @cart.cart_commodities.each do |cart_commodity|
+      %tr
+        %td
+          = cart_commodity.commodity.name
+        %td
+          = cart_commodity.commodity.price
+        %td
+          = cart_commodity.quantity
+        %td
+          = "¥#{cart_commodity.commodity.price * cart_commodity.quantity}"
+%table.table.table-striped
+  %thead
+    %tr 明細
+    %tr 金額
+  %tbody
+    %tr
+      %td 商品総額
+      %td
+        = @cart.commodities_paid
+    %tr
+      %td 配送料
+      %td
+        = @cart.shipping_fee
+    %tr
+      %td 決済手数料
+      %td
+        = @cart.shipping_fee
+    %tr
+      %td
+      %td
+        = '------------------'
+    %tr
+      %td 支払総額
+      %td
+        = @cart.total_amount_paid
+
+%br
+= link_to '購入する！', order_cart_path
+%br
+= link_to 'Back', calculate_cart_path

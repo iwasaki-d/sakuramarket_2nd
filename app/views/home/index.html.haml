@@ -1,0 +1,18 @@
+.container-fluid
+  %h1.m-t-1
+  .row
+    .col-xs-1
+    .col-xs-10
+      .row
+        - @commodities.each do |commodity|
+          .col-xs-4
+            .panel.panel-default
+              .panel-header
+                = link_to commodity.name, commodity
+              .panel-body
+                = image_tag 'ball.png', size: '200x200'
+              .panel-footer
+                %p 価格 ¥#{commodity.price}
+    .col-xs-1
+
+

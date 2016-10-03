@@ -1,0 +1,22 @@
+.row
+  .col-xs-1
+  .col-xs-10
+    %table.table.table-striped
+      %thead
+        %tr
+          %th 商品名称
+          %th 購入数
+          %th 削除
+      %tbody
+        - @cart.cart_commodities.each do |cart_commodity|
+          %tr
+            %td
+              = cart_commodity.commodity.name
+            %td
+              = cart_commodity.quantity
+            %td
+              = ''
+.row
+  .col-xs-1
+  .col-xs-10
+    = link_to '配送・決済方法の選択', edit_cart_path

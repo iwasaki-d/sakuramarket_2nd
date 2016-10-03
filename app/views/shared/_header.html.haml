@@ -1,0 +1,13 @@
+.nav-bar.navbar-default
+  .container-fluid
+    .navbar-header
+      = link_to 'sakuramerket_2nd', '#', class:'navbar-brand'
+    %ul.nav.navbar-nav.navbar-right
+      - if user_signed_in?
+        %li
+          = link_to 'カート', cart_path
+      - else
+        %li
+          = link_to 'ログイン', new_user_session_path
+        %li
+          = link_to 'アカウント作成', new_user_registration_path
